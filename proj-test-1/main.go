@@ -11,7 +11,5 @@ func main() {
 	utilsfunctions.Print_package_name()
 	utilsfunctions.Print_file_name()
 	utilsfunctions.Print_file_name2()
-	utilsfunctions.Print_utils_test_var()
+	utilsfunctions.Print_utils_test_var() // just testing comments here !!!
 }
-
-//	utils "proj-test-1/utils_functions/utils_functions.go"
