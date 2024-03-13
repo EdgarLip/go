@@ -14,10 +14,10 @@ func Basic_map() {
 	fmt.Println(dict1["pie"])            // resault:      7.99
 	fmt.Println(dict1["nonExistingKey"]) // resault:     0
 
-	v, key_exists := dict1["nonExistingKey"]            // this is how u check is the key exists.
-	fmt.Printf("v: %v, key_exists: %v ", v, key_exists) // v: 0, key_exists: false
+	v, key_exists := dict1["nonExistingKey"]              // this is how u check is the key exists.
+	fmt.Printf("v: %v, key_exists: %v \n", v, key_exists) // v: 0, key_exists: false
 	v, key_exists = dict1["salad"]
-	fmt.Printf("v: %v, key_exists: %v ", v, key_exists) // v: 6.99, key_exists: true
+	fmt.Printf("v: %v, key_exists: %v \n", v, key_exists) // v: 6.99, key_exists: true
 
 	if v, key_exists := dict1["nonExistingKey"]; key_exists { // assign values to v and key_exists , and then check if the value is true/false
 		fmt.Println(v) //  this is a very good example.
