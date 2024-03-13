@@ -3,7 +3,7 @@ package utilsfunctions
 import "fmt"
 
 func Print_package_name() {
-	fmt.Printf("utils_functions \n")
+	fmt.Printf("utils_functions ! \n")
 }
 
 func Print_file_name() {
