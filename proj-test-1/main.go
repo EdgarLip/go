@@ -21,7 +21,7 @@ func main() {
 	//------maps ------
 	mapsfunctions.Basic_map()
 
-	//--- import module ---
+	//---- import module ----
 	//fmt.Printf("other package name = %s", pt2helperfunctions.Get_package_name())
 	fmt.Println(mygoutil.Get_package_name())
 
