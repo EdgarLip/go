@@ -18,7 +18,7 @@ func main() {
 	// utilsfunctions.Print_file_name2()
 	// utilsfunctions.Print_utils_test_var() // just testing comments here !!!??
 	// utilsfunctions.Check_assimernt_if()
-	//------maps ------
+	//------maps ---------
 	mapsfunctions.Basic_map()
 
 	//---- import module ----
