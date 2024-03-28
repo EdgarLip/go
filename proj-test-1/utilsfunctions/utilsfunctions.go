@@ -1,6 +1,9 @@
 package utilsfunctions
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func Print_package_name() {
 	fmt.Printf("utils_functions ! \n")
@@ -19,5 +22,36 @@ func Check_assimernt_if() {
 		fmt.Printf("x = %d, we are in the if statment !!! \n", x)
 	} else {
 		fmt.Printf("x = %d, we are in else  statment !!! \n", x)
+	}
+}
+
+func Check_assimernt_if_with_random(x int) {
+	if z := 2 * rand.Intn(x); z >= x {
+		fmt.Printf("z is %v and that is GREATER THAN OR EQUAL x which is %v\n", z, x)
+	} else {
+		fmt.Printf("z is %v and that is LESS THAN x which is %v\n", z, x)
+	}
+}
+
+func Check_switch_case_v1(x int) {
+	switch {
+	case x == 10:
+		fmt.Println("will not enter here… use x == 5 for the example  ")
+	case x == 5:
+		fmt.Println("this is true and this is why it will be printed")
+		fallthrough
+	case x == 3:
+		fmt.Println("will be executed even if not true becasue of fallthrough, will u print me =) ")
+	default:
+		fmt.Println("default will run if no match case was matched.")
+	}
+}
+
+
+func For_loop_on_slice() {
+	fmt.Println("------------  for loop over slice basic 1 ------------------")
+	xi := []int{42, 43, 44, 45, 46, 47}
+	for index, val := range xi {
+		fmt.Printf("ranging over a slice index %v , value %v \n", index, val)
 	}
 }
