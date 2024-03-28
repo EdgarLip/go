@@ -25,3 +25,14 @@ func Basic_map() {
 		fmt.Println("key does not exists !")
 	}
 }
+
+func For_loop_on_map(){
+	fmt.Println("------------  for loop over map basic 1 ------------------")
+	m := map[string]int{
+		"James":      42,
+		"Moneypenny": 32,
+	}
+	for key, val := range m {
+		fmt.Printf("ranging over a map m ,key: %v , val: %v\n", key, val)
+	}
+}
