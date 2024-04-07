@@ -46,12 +46,3 @@ func Check_switch_case_v1(x int) {
 		fmt.Println("default will run if no match case was matched.")
 	}
 }
-
-
-func For_loop_on_slice() {
-	fmt.Println("------------  for loop over slice basic 1 ------------------")
-	xi := []int{42, 43, 44, 45, 46, 47}
-	for index, val := range xi {
-		fmt.Printf("ranging over a slice index %v , value %v \n", index, val)
-	}
-}
