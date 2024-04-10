@@ -23,3 +23,10 @@ func TestCopy() {
 	fmt.Println(matrix_cpy) //[]
 	fmt.Println("---- End TestCopy ---- ")
 }
+
+func CheckVeriadic(x ...int) { //  function is getting an unlimited number of ints
+	fmt.Println(" --- CheckVeriadic --- ")
+	fmt.Println(x)      // resault: [1 2 3 4 5 6 7]
+	fmt.Printf("%T \n", x) //resault:  []int                 , this is the type of the ...int
+	fmt.Println(" --- CheckVeriadic end --- ")
+}

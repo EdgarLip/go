@@ -23,6 +23,14 @@ func modifyPersonByPointer(p *Person) {
 	p.City = "San Francisco"
 }
 
+func (p Person) String() string {
+	/*
+	this function will decide how this object will be printed.
+	fmt.Println(Person)
+	*/
+	return fmt.Sprintf("name: %v, Age: %v", p.Name, p.Age)
+}
+
 func ModifyPersonInAction() {
 	fmt.Println("---- Running ModifyPersonInAction ---- ")
 	person1 := Person{
