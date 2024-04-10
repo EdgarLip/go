@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"time"
 )
 
 type Point struct {
@@ -32,29 +34,48 @@ func newBill(name string) bill { // this function creates a bill object, very si
 	return b
 }
 
-func main() {
-    bill1 := bill{                                        // example 1 of initialization.    ( manual initialization ) . (it is ok to leave some feilds emtpy)
-        name: "table_10",                         // this is long initialization - since i am spesifing the keys and adding them values.
-        items: map[string]float64{
-            "salat": 10.33,
-            "burata": 13.2,
-            "juice": 5.6,
-        },
-        tip: 10.1,
-        colors: []string{"red", "blue", "green"},    
-        Point: Point{                                                     // this is how u initilize a struct. ( aka embedded struct ) 
-            x_value: 10,
-            y_value: 20,
-            name: "point of table_10",
-        },
-      }
-      
-        fmt.Println(bill1)                                 //resault:   {table_10 map[burata:13.2 juice:5.6 salat:10.33] 10.1 [red blue green]}
-        fmt.Println(bill1.name)                     //resault:    table_10
-        fmt.Println(bill1.Point.name)          //resault:    point of table_10
-        fmt.Println(bill1.items["salat"])      //resault:    10.33 
-		fmt.Println(bill1.x_value)
+func (b bill) String() string {
+	/*
+		this function will decide how this object will be printed.
+		fmt.Println(bill)
+	*/
+	return fmt.Sprintf("The Bill's name v2: %v", b.name)
+}
 
+func writeLog(s fmt.Stringer) {
+    log.Println("LOG MSG -", s.String())
+}
+
+
+
+
+
+func main() {
+	// bill1 := bill{                                        // example 1 of initialization.    ( manual initialization ) . (it is ok to leave some feilds emtpy)
+	//     name: "table_10",                         // this is long initialization - since i am spesifing the keys and adding them values.
+	//     items: map[string]float64{
+	//         "salat": 10.33,
+	//         "burata": 13.2,
+	//         "juice": 5.6,
+	//     },
+	//     tip: 10.1,
+	//     colors: []string{"red", "blue", "green"},
+	//     Point: Point{                                                     // this is how u initilize a struct. ( aka embedded struct )
+	//         x_value: 10,
+	//         y_value: 20,
+	//         name: "point of table_10",
+	//     },
+	//   }
+
+	//     log.Println(bill1)                          //resault:   {table_10 map[burata:13.2 juice:5.6 salat:10.33] 10.1 [red blue green]}
+	// 	log.Println("LOG-MSG", bill1)  
+	// 	writeLog(bill1)
+
+
+	//     fmt.Println(bill1.name)                     //resault:    table_10
+	//     fmt.Println(bill1.Point.name)               //resault:    point of table_10
+	//     fmt.Println(bill1.items["salat"])            //resault:    10.33
+	// 	fmt.Println(bill1.x_value)
 
 	// billList := []bill{}              // create empty slice which it's values will be of type bill ( a struc that i created - few lines up).
 	// mybill := newBill("mario's bill") // newBill -> this is the function from the above example ( asme as constructor ).
@@ -70,9 +91,6 @@ func main() {
 	// fmt.Println(mybill.Point.name)
 	// fmt.Println(mybill.x_value)
 
-	
-
 	// billList = append(billList, mybill)
 	// fmt.Println(billList)
-
 }

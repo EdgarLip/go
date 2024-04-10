@@ -25,6 +25,11 @@ func main() {
 	// utilsfunctions.Print_utils_test_var() // just testing comments here !!!??
 	// utilsfunctions.Check_assimernt_if()
 
+	// --- time ---
+	fmt.Println("--- time start ---")
+	fmt.Println(utilsfunctions.TimeMesureFunc(utilsfunctions.DoWork))
+	fmt.Println("--- time end ---")
+
 	//  --- random ---
 	//utilsfunctions.Check_assimernt_if_with_random(10)
 
@@ -32,8 +37,10 @@ func main() {
 	//utilsfunctions.Check_switch_case_v1(5)
 
 	//------slices ---------
+	sliceForTest := []int{1, 2, 3, 4, 5, 6}
 	slicefunctions.For_loop_on_slice()
 	slicefunctions.TestCopy()
+	slicefunctions.CheckVeriadic(sliceForTest...)
 
 	//------maps ---------
 	mapsfunctions.Basic_map()
@@ -45,5 +52,33 @@ func main() {
 	//fmt.Printf("other package name = %s", pt2helperfunctions.Get_package_name())
 	// fmt.Println(mygoutil.Get_package_name())
 	mygoutil.Print_tag_v1_2_0()
+
+	//   ------ file section ---------
+	fmt.Println(" --- file work --- ")
+	content := "Hello, world!\nThis is a test file\nfrom Edgar !."
+
+	// opend_file, err := utilsfunctions.CreateFile("text-test.txt")
+	// if err != nil {
+	//     panic(err)
+	// }
+	// defer opend_file.Close()
+
+	opend_file, err := utilsfunctions.OpenFile("text-test.txt")
+	if err != nil {
+		panic(err) // Handle the error if there was a problem opening the file
+	}
+
+	if err := utilsfunctions.WriteToFile(opend_file, content); err != nil {
+		panic(err)
+	}
+
+	if err := utilsfunctions.FileOffsetToStartOfFile(opend_file); err != nil {
+		panic(err)
+	}
+
+	if err := utilsfunctions.ReadFile(opend_file); err != nil {
+		panic(err) // Handle the error if there was a problem reading from the file
+	}
+	fmt.Println(" --- end file work --- ")
 
 }
