@@ -43,15 +43,21 @@ func main() {
 	slicefunctions.CheckVeriadic(sliceForTest...)
 
 	//------maps ---------
-	mapsfunctions.Basic_map()
+	fmt.Println("--- start map ---")
+	//mapsfunctions.Basic_map()
 	//mapsfunctions.For_loop_on_map()
+	mapsfunctions.Basic_unmarshal1()
+	//mapsfunctions.Basic_unmarshal2()
+	fmt.Println("--- end map ---")
 
-	// ------structs ---------
+	// ------structs | struct section |  ---------
 	structfunctions.ModifyPersonInAction()
 	//---- import module ------
 	//fmt.Printf("other package name = %s", pt2helperfunctions.Get_package_name())
 	// fmt.Println(mygoutil.Get_package_name())
 	mygoutil.Print_tag_v1_2_0()
+	structfunctions.PersonSayHiInAction()
+	structfunctions.InfoInAction()
 
 	//   ------ file section ---------
 	fmt.Println(" --- file work --- ")

@@ -1,6 +1,9 @@
 package structfunctions
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // Define a struct
 type Person struct {
@@ -25,8 +28,8 @@ func modifyPersonByPointer(p *Person) {
 
 func (p Person) String() string {
 	/*
-	this function will decide how this object will be printed.
-	fmt.Println(Person)
+		this function will decide how this object will be printed.
+		fmt.Println(Person)
 	*/
 	return fmt.Sprintf("name: %v, Age: %v", p.Name, p.Age)
 }
@@ -52,3 +55,64 @@ func ModifyPersonInAction() {
 
 	fmt.Println("---- Running ModifyPersonInAction ---- ")
 }
+
+// ***   example 1   ***
+func (p Person) personSayHiReceiver() {
+	fmt.Printf("HI, name is: %v\n", p.Name)
+}
+
+func (p *Person) personSayHiReceiverByPointer() {
+	fmt.Printf("HI, name is: %v\n", p.Name)
+}
+
+func PersonSayHiInAction() {
+	person1 := Person{
+		Name: "Person1NonPointer",
+		Age:  28,
+		City: "test city",
+	}
+
+	person2 := &Person{
+		Name: "Person2Pointer",
+		Age:  28,
+		City: "test city",
+	}
+
+	person1.personSayHiReceiver()
+	person1.personSayHiReceiverByPointer()
+
+	person2.personSayHiReceiver()
+	person2.personSayHiReceiverByPointer()
+}
+
+//   ***   end of example 1   ***
+
+// ***   example 2   ***
+type circle struct {
+	radius float64
+}
+type shape interface { // create new type "shape" which implemets 2 methods
+	area() float64            //   which ever struct implemets those methods
+	areaWithPointer() float64 // he will be also ( bbecomes also ) of type "shape".
+}
+
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c *circle) areaWithPointer() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func info(s shape) {
+	fmt.Println("area", s.area())
+	fmt.Println("area", s.areaWithPointer())
+}
+
+func InfoInAction() {
+	c := circle{5}
+	//info(c) // not wroking
+	info(&c) // working !
+}
+
+//   ***   end of example 2   ***
