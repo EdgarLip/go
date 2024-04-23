@@ -3,6 +3,7 @@ package mapsfunctions
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 )
 
 func Basic_map() {
@@ -84,4 +85,55 @@ func Basic_unmarshal2() {
 	for indx, val := range personSlice { // just another way to print it...
 		fmt.Printf("Person: %v Full name: %v, %v\n", indx+1, val.Firts, val.Last)
 	}
+}
+
+func InterfacedMapExampleInAction() {
+	dict := make(map[interface{}]interface{}) // Creating a map with keys and values of type interface{}
+
+	dict[1] = "one" // Adding elements to the map with different types of keys and values
+	dict["two"] = 2
+	dict[true] = false
+	dict[3.14] = []int{1, 2, 3}
+
+	fmt.Printf("InterfacedMapExample dict[1]: %v\n", dict[1])         // Output: one
+	fmt.Printf("InterfacedMapExample dict['two']: %v\n", dict["two"]) // Output: 2
+	fmt.Printf("InterfacedMapExample dict[true]: %v\n", dict[true])   // Output: false
+	fmt.Printf("InterfacedMapExample dict[3.14]: %v\n", dict[3.14])   // Output: [1 2 3]
+}
+
+func InterfacedMapExampleInActionV2() {
+	dict := make(map[interface{}]interface{}) // Creating a map with keys and values of type interface{}
+	dict["two"] = 2
+
+	dict["ppl"] = make(map[interface{}]interface{}) // Initialize a nested map under the key "ppl"
+
+	pplMap := dict["ppl"].(map[interface{}]interface{}) // Populate the nested map with a value
+
+	fmt.Printf("NESTED-dict - pplMap value after assertion-1: %v\n", pplMap)                // NESTED-dict - pplMap value after assertion-1: map[]
+	fmt.Printf("NESTED-dict - dict['ppl'] value after asserting pplMap: %v\n", dict["ppl"]) // NESTED-dict - dict['ppl'] value after asserting pplMap: map[]
+
+	fmt.Printf("NESTED-dict - mem addr of dict['ppl']: %v\n", reflect.ValueOf(dict["ppl"]).Pointer())
+	fmt.Printf("NESTED-dict - mem addr of pplMap: %v\n", reflect.ValueOf(pplMap).Pointer())
+	fmt.Printf("NESTED-dict - mem addr of pplMap: %p\n", &pplMap)
+
+	pplMap["edgar"] = "amazing"
+
+	fmt.Printf("NESTED-dict - pplMap after adding some value: %v\n", pplMap) // NESTED-dict - pplMap after adding some value: map[edgar:amazing]
+
+	fmt.Printf("NESTED-dict: dict value: %v\n", dict) // NESTED-dict: dict value: map[ppl:map[edgar:amazing] two:2]
+}
+
+func InterfacedMapExampleInActionV3() {
+	dict := make(map[interface{}]interface{}) // Creating a map with keys and values of type interface{}
+	dict["two"] = 2
+
+	dict["ppl"] = make(map[interface{}]interface{}) // Initialize a nested map under the key "ppl"
+
+	dictPpl := dict["ppl"].(map[interface{}]interface{}) // assert type the nested map to variable with value.
+	dictPpl["edgar"] = "amazing"
+	dictPpl["student"] = make(map[interface{}]interface{})
+
+	dictPplStudents := dictPpl["student"].(map[interface{}]interface{})
+	dictPplStudents["nomi"] = "working"
+	fmt.Printf("NESTED-dict x3 -%v\n", dict)
 }

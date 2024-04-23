@@ -46,3 +46,19 @@ func Check_switch_case_v1(x int) {
 		fmt.Println("default will run if no match case was matched.")
 	}
 }
+
+func AssertionExample1() {
+	var i interface{} = "hello" // assign a string "hello" to an empty interface which is called "i".
+
+	s := i.(string)
+	fmt.Println(s) //resault:  hello
+
+	s, ok := i.(string)
+	fmt.Println(s, ok) //resault: hello true
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok) //resault: 0 false
+
+	//f = i.(float64) // resault: panic    -    panic: interface conversion: interface {} is string, not float64
+	//fmt.Println(f)
+}

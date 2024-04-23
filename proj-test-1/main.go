@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	cuncurrencyFunctions "edgar.com/proj-test-1/cuncurrencyFunctions"
+	interfaceFunctions "edgar.com/proj-test-1/interfaceFunctions"
 	mapsfunctions "edgar.com/proj-test-1/mapsfunctions"
 	slicefunctions "edgar.com/proj-test-1/slicefunctions"
 	structfunctions "edgar.com/proj-test-1/structfunctions"
@@ -46,8 +48,11 @@ func main() {
 	fmt.Println("--- start map ---")
 	//mapsfunctions.Basic_map()
 	//mapsfunctions.For_loop_on_map()
-	mapsfunctions.Basic_unmarshal1()
+	//mapsfunctions.Basic_unmarshal1()
 	//mapsfunctions.Basic_unmarshal2()
+	mapsfunctions.InterfacedMapExampleInAction()
+	mapsfunctions.InterfacedMapExampleInActionV2()
+	mapsfunctions.InterfacedMapExampleInActionV3()
 	fmt.Println("--- end map ---")
 
 	// ------structs | struct section |  ---------
@@ -58,6 +63,18 @@ func main() {
 	mygoutil.Print_tag_v1_2_0()
 	structfunctions.PersonSayHiInAction()
 	structfunctions.InfoInAction()
+
+	//   ------ interface section ---------
+	fmt.Println("")
+	fmt.Println("--- interface start  ---")
+	fmt.Println("***\t\t check type with if \t\t***")
+	interfaceFunctions.CheckTypeWithIfInAction()
+	fmt.Println("***\t\t check type with switch \t\t***")
+	interfaceFunctions.CheckTypeWithSwitchInAxtion()
+
+	utilsfunctions.AssertionExample1()
+	fmt.Println("--- interface end  ---")
+	fmt.Println("")
 
 	//   ------ file section ---------
 	fmt.Println(" --- file work --- ")
@@ -86,5 +103,8 @@ func main() {
 		panic(err) // Handle the error if there was a problem reading from the file
 	}
 	fmt.Println(" --- end file work --- ")
+
+	//cuncurrency section
+	cuncurrencyFunctions.CuncurencyInAction()
 
 }
