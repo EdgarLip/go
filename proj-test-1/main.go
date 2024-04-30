@@ -104,7 +104,12 @@ func main() {
 	}
 	fmt.Println(" --- end file work --- ")
 
-	//cuncurrency section
-	cuncurrencyFunctions.CuncurencyInAction()
+	//   ---   cuncurrency section   ---
+	fmt.Println(" --- cuncurrency Start --- ")
+
+	//cuncurrencyFunctions.CuncurencyInAction()
+	//cuncurrencyFunctions.ChannelTestInAction()
+	cuncurrencyFunctions.FanInMain()
+	fmt.Println(" --- cuncurrency End --- ")
 
 }
