@@ -21,7 +21,11 @@ func init() {
 // run this file from wsl.
 // go to the folder -> /mnt/c/Users/lipnitsk/go_projects/go/proj-test-1
 // and run          -> go run main.go
-
+// git work flow basic: 
+//   - git checkout -b <branch name > 
+//   - git add <files that u need > 
+//   - git commit -m "msg"
+//   - git push origin <local_baranch_name>:<remote_branch_name>      ->     check that that your branch is uploaded to the reamote repo.
 func main() {
 	fmt.Println("run this in WSL from the main test with WSL !!!! ")
 	fmt.Printf("inside pakcage main-> in main function this is where the go starts !\n")
