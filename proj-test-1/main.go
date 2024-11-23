@@ -18,7 +18,12 @@ func init() {
 	fmt.Println("INIT function runs first ! ")
 }
 
+// run this file from wsl.
+// go to the folder -> /mnt/c/Users/lipnitsk/go_projects/go/proj-test-1
+// and run          -> go run main.go
+
 func main() {
+	fmt.Println("run this in WSL from the main test with WSL !!!! ")
 	fmt.Printf("inside pakcage main-> in main function this is where the go starts !\n")
 	//--- import package in same module ---
 	//utilsfunctions.Print_package_name()
@@ -80,13 +85,13 @@ func main() {
 	fmt.Println(" --- file work --- ")
 	content := "Hello, world!\nThis is a test file\nfrom Edgar !."
 
-	// opend_file, err := utilsfunctions.CreateFile("text-test.txt")
-	// if err != nil {
-	//     panic(err)
-	// }
-	// defer opend_file.Close()
+	opend_file, err := utilsfunctions.CreateFile("text-test.txt")
+	if err != nil {
+	    panic(err)
+	}
+	defer opend_file.Close()
 
-	opend_file, err := utilsfunctions.OpenFile("text-test.txt")
+	//opend_file2, err2 := utilsfunctions.OpenFile("text-test.txt")
 	if err != nil {
 		panic(err) // Handle the error if there was a problem opening the file
 	}
