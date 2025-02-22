@@ -95,7 +95,7 @@ func main() {
 	bill2.UpdateTipWithPointer(1.5)
 	fmt.Println(bill1.GetBillName())	
 	fmt.Println(bill2.GetBillName())	
-	interfaceFunctions.PrintTipsOfanyBillType(bill1)
+	//interfaceFunctions.PrintTipsOfanyBillType(bill1)
 	interfaceFunctions.PrintTipsOfanyBillType(bill2)
 
 
