@@ -10,6 +10,10 @@ import (
 var start = time.Now()
 
 
+func CuncurencyPlaceHolderfucntion() {
+	fmt.Println("called from cuncurrencyFunctions package !!!")
+}
+
 func CuncurencyInAction() {
 	fmt.Println("CPUs:", runtime.NumCPU())
 	fmt.Println("Goroutines:", runtime.NumGoroutine())

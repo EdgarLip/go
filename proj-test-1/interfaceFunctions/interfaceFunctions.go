@@ -2,6 +2,15 @@ package interfaceFunctions
 
 import "fmt"
 
+type GeneralBill interface {
+	UpdateTip(tip float64) 
+	UpdateTipWithPointer(tip float64) 
+}
+
+func PrintTipsOfanyBillType(bill GeneralBill) {
+	fmt.Println(bill)
+}
+
 func CheckInterfaceVarible() {
 	var val interface{} = 42
 	v, ok := val.(int)

@@ -47,13 +47,17 @@ func main() {
 	// ------ switch ------
 	//utilsfunctions.Check_switch_case_v1(5)
 
-	//------slices ---------
+	// ---------------------
+	// ------slices ---------
+	// ---------------------
 	sliceForTest := []int{1, 2, 3, 4, 5, 6}
 	slicefunctions.For_loop_on_slice()
 	slicefunctions.TestCopy()
 	slicefunctions.CheckVeriadic(sliceForTest...)
 
-	//------maps ---------
+	// -------------------
+	// ------ maps -------
+	// -------------------
 	fmt.Println("--- start map ---")
 	//mapsfunctions.Basic_map()
 	//mapsfunctions.For_loop_on_map()
@@ -64,8 +68,41 @@ func main() {
 	mapsfunctions.InterfacedMapExampleInActionV3()
 	fmt.Println("--- end map ---")
 
+
+	
+    // -------------------------------------------
 	// ------structs | struct section |  ---------
-	structfunctions.ModifyPersonInAction()
+	// -------------------------------------------
+	fmt.Println("--- start structs ---")
+
+	bill1 := structfunctions.Bill{Name: "nomis-bday",
+	                              Items: map[string]float64{
+								  	"slalt": 10.2,
+								  	"waffel": 5.3,
+								  },
+								  Tip: 10.10}
+
+	bill2 := &structfunctions.Bill{Name: "yulias-bday",
+	                              Items: map[string]float64{
+								  	"slalt": 12.2,
+								  	"waffel": 3.3,
+								  },
+								  Tip: 10.10}
+
+	bill1.UpdateTip(5.5)
+	bill2.UpdateTip(5.5)
+	bill1.UpdateTipWithPointer(2.5)
+	bill2.UpdateTipWithPointer(1.5)
+	fmt.Println(bill1.GetBillName())	
+	fmt.Println(bill2.GetBillName())	
+	interfaceFunctions.PrintTipsOfanyBillType(bill1)
+	interfaceFunctions.PrintTipsOfanyBillType(bill2)
+
+
+	//structfunctions.ModifyPersonInAction()
+	
+	fmt.Println("--- end structs ---")
+
 	//---- import module ------
 	//fmt.Printf("other package name = %s", pt2helperfunctions.Get_package_name())
 	// fmt.Println(mygoutil.Get_package_name())
@@ -73,7 +110,9 @@ func main() {
 	structfunctions.PersonSayHiInAction()
 	structfunctions.InfoInAction()
 
+	//   ----------------------------------
 	//   ------ interface section ---------
+	//   ----------------------------------
 	fmt.Println("")
 	fmt.Println("--- interface start  ---")
 	fmt.Println("***\t\t check type with if \t\t***")
@@ -86,39 +125,42 @@ func main() {
 	fmt.Println("")
 
 	//   ------ file section ---------
-	fmt.Println(" --- file work --- ")
-	content := "Hello, world!\nThis is a test file\nfrom Edgar !."
+	// fmt.Println(" --- file work --- ")
+	// content := "Hello, world!\nThis is a test file\nfrom Edgar !."
 
-	opend_file, err := utilsfunctions.CreateFile("text-test.txt")
-	if err != nil {
-	    panic(err)
-	}
-	defer opend_file.Close()
+	// opend_file, err := utilsfunctions.CreateFile("text-test.txt")
+	// if err != nil {
+	//     panic(err)
+	// }
+	// defer opend_file.Close()
 
-	//opend_file2, err2 := utilsfunctions.OpenFile("text-test.txt")
-	if err != nil {
-		panic(err) // Handle the error if there was a problem opening the file
-	}
+	// //opend_file2, err2 := utilsfunctions.OpenFile("text-test.txt")
+	// if err != nil {
+	// 	panic(err) // Handle the error if there was a problem opening the file
+	// }
 
-	if err := utilsfunctions.WriteToFile(opend_file, content); err != nil {
-		panic(err)
-	}
+	// if err := utilsfunctions.WriteToFile(opend_file, content); err != nil {
+	// 	panic(err)
+	// }
 
-	if err := utilsfunctions.FileOffsetToStartOfFile(opend_file); err != nil {
-		panic(err)
-	}
+	// if err := utilsfunctions.FileOffsetToStartOfFile(opend_file); err != nil {
+	// 	panic(err)
+	// }
 
-	if err := utilsfunctions.ReadFile(opend_file); err != nil {
-		panic(err) // Handle the error if there was a problem reading from the file
-	}
-	fmt.Println(" --- end file work --- ")
+	// if err := utilsfunctions.ReadFile(opend_file); err != nil {
+	// 	panic(err) // Handle the error if there was a problem reading from the file
+	// }
+	// fmt.Println(" --- end file work --- ")
 
+	//   -------------------------------
 	//   ---   cuncurrency section   ---
-	fmt.Println(" --- cuncurrency Start --- ")
+	//   -------------------------------
+	// fmt.Println(" --- cuncurrency Start --- ")
 
-	//cuncurrencyFunctions.CuncurencyInAction()
-	//cuncurrencyFunctions.ChannelTestInAction()
-	cuncurrencyFunctions.FanInMain()
-	fmt.Println(" --- cuncurrency End --- ")
+	cuncurrencyFunctions.CuncurencyPlaceHolderfucntion()
+	// cuncurrencyFunctions.CuncurencyInAction()
+	// cuncurrencyFunctions.ChannelTestInAction()
+	// cuncurrencyFunctions.FanInMain()
+	// fmt.Println(" --- cuncurrency End --- ")
 
 }
