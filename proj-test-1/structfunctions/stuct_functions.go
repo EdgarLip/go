@@ -3,6 +3,7 @@ package structfunctions
 import (
 	"fmt"
 	"math"
+	//"strings"
 	//"reflect"
 )
 
@@ -135,7 +136,6 @@ type Bill struct {
     Tip   float64
 }
 
-
 // getEmailOfPerson gets a doiman string like gmail.com 
 // returns the full mail address of a person
 func (b Bill) GetBillName() string {
@@ -156,6 +156,3 @@ func (b *Bill) UpdateTipWithPointer(tip float64) {
     //(*b).tip = tip                                               // this will work because u change the order of go's operator priorites.
      b.Tip = tip
 }
-
-
-

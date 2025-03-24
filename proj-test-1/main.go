@@ -9,6 +9,7 @@ import (
 	slicefunctions "edgar.com/proj-test-1/slicefunctions"
 	structfunctions "edgar.com/proj-test-1/structfunctions"
 	utilsfunctions "edgar.com/proj-test-1/utilsfunctions"
+	importtesttest "edgar.com/proj-test-1/importTest1/importTest2/importTestTest"
 
 	//pt2helperfunctions "edgar.com/proj-test-2/pt2helperfunctions"
 	mygoutil "github.com/EdgarLip/mygoutils"
@@ -36,6 +37,13 @@ func main() {
 	// utilsfunctions.Print_utils_test_var() // just testing comments here !!!??
 	// utilsfunctions.Check_assimernt_if()
 
+	// ----------------------------
+	// ------ import section ------
+	// ----------------------------
+	importtesttest.Info10()
+	importtesttest.Info20()
+
+
 	// --- time ---
 	fmt.Println("--- time start ---")
 	fmt.Println(utilsfunctions.TimeMesureFunc(utilsfunctions.DoWork))
@@ -55,9 +63,9 @@ func main() {
 	slicefunctions.TestCopy()
 	slicefunctions.CheckVeriadic(sliceForTest...)
 
-	// -------------------
-	// ------ maps -------
-	// -------------------
+	// -----------------------------------
+	// ------ maps | map section | -------
+	// -----------------------------------
 	fmt.Println("--- start map ---")
 	//mapsfunctions.Basic_map()
 	//mapsfunctions.For_loop_on_map()
@@ -95,11 +103,14 @@ func main() {
 	bill2.UpdateTipWithPointer(1.5)
 	fmt.Println(bill1.GetBillName())	
 	fmt.Println(bill2.GetBillName())	
-	//interfaceFunctions.PrintTipsOfanyBillType(bill1)
+	//interfaceFunctions.PrintTipsOfanyBillType(bill1)           // this will not work , WHY? 
+	                                                             // A: since "GeneralBill" interface requires implemetation of "(b *Bill) UpdateTipWithPointer(tip float64)" which waits for 
+																 //    a pointer as a receiver, and since bill1 is not a point - but the object itself - go will not let this work.
 	interfaceFunctions.PrintTipsOfanyBillType(bill2)
 
 
 	//structfunctions.ModifyPersonInAction()
+	structfunctions.PrintNodeSelectorOfStaticRoute()
 	
 	fmt.Println("--- end structs ---")
 
