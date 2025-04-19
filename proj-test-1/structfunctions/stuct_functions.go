@@ -36,7 +36,7 @@ func (p Person) String() string {
 	return fmt.Sprintf("name: %v, Age: %v", p.Name, p.Age)
 }
 
-// getEmailOfPerson gets a doiman string like gmail.com 
+// getEmailOfPerson gets a doiman string like gmail.com
 // returns the full mail address of a person
 func (p Person) GetEmailOfPerson(domain string) string {
 	return fmt.Sprintf("%v.%v.%v@%v", p.Name, p.Age, p.City, domain)
@@ -131,12 +131,12 @@ func InfoInAction() {
 
 // ***   example 3   ***
 type Bill struct {
-    Name  string
-    Items map[string]float64
-    Tip   float64
+	Name  string
+	Items map[string]float64
+	Tip   float64
 }
 
-// getEmailOfPerson gets a doiman string like gmail.com 
+// getEmailOfPerson gets a doiman string like gmail.com
 // returns the full mail address of a person
 func (b Bill) GetBillName() string {
 	return fmt.Sprintf("%v  --  %v  --  %v", b.Name, b.Items, b.Tip)
@@ -148,11 +148,11 @@ func (b *Bill) GetBillNameWithPointer() string {
 }
 
 func (b Bill) UpdateTip(tip float64) {
-    //(*b).tip = tip                                               // this will work because u change the order of go's operator priorites.
-     b.Tip = tip
+	//(*b).tip = tip                                               // this will work because u change the order of go's operator priorites.
+	b.Tip = tip
 }
 
 func (b *Bill) UpdateTipWithPointer(tip float64) {
-    //(*b).tip = tip                                               // this will work because u change the order of go's operator priorites.
-     b.Tip = tip
+	//(*b).tip = tip                                               // this will work because u change the order of go's operator priorites.
+	b.Tip = tip
 }
