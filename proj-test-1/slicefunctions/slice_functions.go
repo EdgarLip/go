@@ -1,8 +1,11 @@
 package slicefunctions
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-// For_loop_on_slice Function is nice and good example of how the basic for loop works 
+// For_loop_on_slice Function is nice and good example of how the basic for loop works
 // in the go programing language.
 func For_loop_on_slice() {
 	fmt.Println("------------  for loop over slice basic 1 ------------------")
@@ -11,6 +14,12 @@ func For_loop_on_slice() {
 		fmt.Printf("ranging over a slice index %v , value %v \n", index, val)
 	}
 }
+
+
+func JoinStringsInSlice(_strings []string, seperator string) string {
+	return strings.Join(_strings, seperator)
+}
+
 
 func TestCopy() {
 	// in this example is am showing that nested copy does not work at all for a slice.

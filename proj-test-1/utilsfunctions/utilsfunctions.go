@@ -62,3 +62,10 @@ func AssertionExample1() {
 	//f = i.(float64) // resault: panic    -    panic: interface conversion: interface {} is string, not float64
 	//fmt.Println(f)
 }
+
+func PrintWith20PaddingSingleLine(printValues ...string){
+	for _, printValue :=  range printValues {
+		fmt.Printf("%-20v", printValue)
+	}
+	fmt.Println()
+}

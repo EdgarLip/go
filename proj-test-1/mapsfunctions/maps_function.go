@@ -30,6 +30,17 @@ func Basic_map() {
 	}
 }
 
+func BasicMap2() {
+	dict1 := map[string]string{}
+	dict2 := make(map[string]string)
+
+	dict1["new_val"] = "new"
+	dict2["new_val"] = "new"
+
+	fmt.Println(dict1)
+	fmt.Println(dict2)
+}
+
 func For_loop_on_map() {
 	fmt.Println("------------  for loop over map basic 1 ------------------")
 	m := map[string]int{
