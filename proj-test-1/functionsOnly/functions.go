@@ -12,4 +12,12 @@ func CheckMultiReturnValue() (string, error) {
 }
 
 
+func CheckStrangePrint() {
+	age := 35
+	name := "shaun"
+	s1 := []string{"a", "b", "c"}
+
+
+	fmt.Printf("%#[3]v\n", age, name, s1 )
+}
 
