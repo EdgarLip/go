@@ -12,6 +12,7 @@ import (
 	utilsfunctions "edgar.com/proj-test-1/utilsfunctions"
 	stringfunctions "edgar.com/proj-test-1/stringfunctions"
 	sortfunctions "edgar.com/proj-test-1/sortfunctions"
+	closurefunctions "edgar.com/proj-test-1/closurefunctions"
 
 	//pt2helperfunctions "edgar.com/proj-test-2/pt2helperfunctions"
 	mygoutil "github.com/EdgarLip/mygoutils"
@@ -54,10 +55,14 @@ func main() {
 	fmt.Println("------ function test section ------")
 	name, err := functionsOnly.CheckMultiReturnValue()
 	if err != nil {
-		fmt.Printf("error: %v", err)
-		fmt.Printf("name: %v", name)
+		fmt.Printf("error: %v\n", err)
+		fmt.Printf("name: %v\n", name)
 	}
-
+	functionsOnly.CheckStrangePrint()
+	if err != nil {
+		fmt.Printf("error: %v\n", err)
+		fmt.Printf("name: %v\n", name)
+	}
 
 	// ----------------------------
 	// ------ import section ------
@@ -94,6 +99,7 @@ func main() {
 	// slicefunctions.CheckVeriadic(sliceForTest...)
 	sliceOfStrings := []string{"one", "2", "3, 4, 5, 6"}
 	fmt.Println(slicefunctions.JoinStringsInSlice(sliceOfStrings, ", "))
+	slicefunctions.SliceTheSlice()
 	fmt.Println("--- slices end ---")
 
 	// -----------------------------------
@@ -111,20 +117,31 @@ func main() {
 	fmt.Println("--- end map ---")
 
 	// -------------------------------------------
+	// ------ closure | struct closure |  --------
+	// -------------------------------------------
+	fmt.Println("--- closure start ---")
+
+	closurefunctions.DoTheThing1()
+	closurefunctions.DoTheThing2()
+	closurefunctions.DoTheThing2WithSolution()
+
+	fmt.Println("--- closure end ---")
+
+	// -------------------------------------------
 	// ------structs | struct section |  ---------
 	// -------------------------------------------
 	fmt.Println("--- start structs ---")
 
 	bill1 := structfunctions.Bill{Name: "nomis-bday",
 		Items: map[string]float64{
-			"slalt":  10.2,
+			"slat":  10.2,
 			"waffel": 5.3,
 		},
 		Tip: 10.10}
 
 	bill2 := &structfunctions.Bill{Name: "yulias-bday",
 		Items: map[string]float64{
-			"slalt":  12.2,
+			"slat":  12.2,
 			"waffel": 3.3,
 		},
 		Tip: 10.10}
