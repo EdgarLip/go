@@ -13,10 +13,11 @@ import (
 	stringfunctions "edgar.com/proj-test-1/stringfunctions"
 	sortfunctions "edgar.com/proj-test-1/sortfunctions"
 	closurefunctions "edgar.com/proj-test-1/closurefunctions"
+	examplesOnly "edgar.com/proj-test-1/examplesOnly"
+	functionsOnly "edgar.com/proj-test-1/functionsOnly"
 
 	//pt2helperfunctions "edgar.com/proj-test-2/pt2helperfunctions"
 	mygoutil "github.com/EdgarLip/mygoutils"
-	functionsOnly "edgar.com/proj-test-1/functionsOnly"
 )
 
 func init() {
@@ -99,7 +100,9 @@ func main() {
 	// slicefunctions.CheckVeriadic(sliceForTest...)
 	sliceOfStrings := []string{"one", "2", "3, 4, 5, 6"}
 	fmt.Println(slicefunctions.JoinStringsInSlice(sliceOfStrings, ", "))
-	slicefunctions.SliceTheSlice()
+	//slicefunctions.SliceTheSlice()
+	slicefunctions.SliceTheArrayWithForLoop()
+	slicefunctions.SliceTheArrayWithForLoop2()
 	fmt.Println("--- slices end ---")
 
 	// -----------------------------------
@@ -145,6 +148,9 @@ func main() {
 			"waffel": 3.3,
 		},
 		Tip: 10.10}
+	
+	fmt.Printf("bill1:  %v\nbill2: %v ",bill1,bill2)
+	
 
 	bill1.UpdateTip(5.5)
 	bill2.UpdateTip(5.5)
@@ -152,6 +158,7 @@ func main() {
 	bill2.UpdateTipWithPointer(1.5)
 	fmt.Println(bill1.GetBillName())
 	fmt.Println(bill2.GetBillName())
+	structfunctions.PrintBillData()
 	//interfaceFunctions.PrintTipsOfanyBillType(bill1)           // this will not work , WHY?
 	// A: since "GeneralBill" interface requires implemetation of "(b *Bill) UpdateTipWithPointer(tip float64)" which waits for
 	//    a pointer as a receiver, and since bill1 is not a point - but the object itself - go will not let this work.
@@ -159,7 +166,7 @@ func main() {
 
 	//structfunctions.ModifyPersonInAction()
 	structfunctions.PrintNodeSelectorOfStaticRoute()
-
+	
 	fmt.Println("--- end structs ---")
 
 	//---- import module ------
@@ -168,6 +175,13 @@ func main() {
 	mygoutil.Print_tag_v1_2_0()
 	structfunctions.PersonSayHiInAction()
 	structfunctions.InfoInAction()
+
+	// this examples show how to calculate a distance between points in a line, and a full path that has many lines in it 
+	side := structfunctions.Line{structfunctions.Point{1, 2,"p1"}, structfunctions.Point{4, 6,"p2"}}
+	perimeter := structfunctions.Path{{1,1,"p1"}, {5,1,"p2"}, {5,4,"p3"}, {1,1,"p4"}}
+	fmt.Printf("side distance = %v \n",side.Distance())
+	fmt.Printf("perimeter distance = %v \n",perimeter.Distance())
+
 
 	//   ----------------------------------
 	//   ------ interface section ---------
@@ -226,9 +240,15 @@ func main() {
 	//   ---   sort section   ---
 	//   -------------------------------
 	fmt.Println(" --- sort Start --- ")
+	sortfunctions.SortStringsExample()
 	sortfunctions.CharecterCounter()
 	words := sortfunctions.WordsCounter()
 	sortfunctions.SortTop3Words(words)
+	sortfunctions.SortWords(words)
 
 	fmt.Println(" --- sort End --- ")
+
+	fmt.Println(" --- examples Start --- ")
+	examplesOnly.ExamplesTest()
+	fmt.Println(" --- examples end --- ")
 }
