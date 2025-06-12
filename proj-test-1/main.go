@@ -251,4 +251,14 @@ func main() {
 	fmt.Println(" --- examples Start --- ")
 	examplesOnly.ExamplesTest()
 	fmt.Println(" --- examples end --- ")
+
+	//   ------------------------------------
+	//   ---   http server section start  ---
+	//   ------------------------------------
+	
+	examplesOnly.RunHttpServer()
+
+	//   ------------------------------------
+	//   ---   http server section end    ---
+	//   ------------------------------------
 }
