@@ -7,7 +7,6 @@ import (
 	"strconv"
 )
 
-
 // this program is a cute little http api server - for learning purposes = )
 // NOTE: don't do this in real life
 type dollars float32
@@ -25,9 +24,8 @@ func (db database) list(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-// how to use: curl "http://127.0.0.1:8091/add?item=ties&price=10.0" -i
+// how to use: curl "http://127.0.0.1:8091/add?item=ties&price=10.0" -i  OR
 //
-//	OR
 //	curl http://127.0.0.1:8091/add?item=ties\&price=10.0  -i
 func (db database) add(w http.ResponseWriter, req *http.Request) {
 	item := req.URL.Query().Get("item")
@@ -69,7 +67,8 @@ func (db database) update(w http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(w, "updated %s with price %s\n", item, dollars(f64))
 	}
 }
-//how to use: curl http://127.0.0.1:8091/get?'item=socks'
+
+// how to use: curl http://127.0.0.1:8091/get?'item=socks'
 func (db database) get(w http.ResponseWriter, req *http.Request) {
 	item := req.URL.Query().Get("item")
 
@@ -82,7 +81,7 @@ func (db database) get(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "item %s price %s\n", item, dollars(db[item]))
 }
 
-//how to use: curl http://127.0.0.1:8091/delete?'item=socks'
+// how to use: curl http://127.0.0.1:8091/delete?'item=socks'
 func (db database) delete(w http.ResponseWriter, req *http.Request) {
 	item := req.URL.Query().Get("item")
 
@@ -95,7 +94,6 @@ func (db database) delete(w http.ResponseWriter, req *http.Request) {
 	delete(db, item)
 
 	fmt.Fprintf(w, "item %s was deleted !\n", item)
-
 }
 
 func RunHttpServer() {
