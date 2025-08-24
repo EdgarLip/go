@@ -3,18 +3,18 @@ package main
 import (
 	"fmt"
 
+	closurefunctions "edgar.com/proj-test-1/closurefunctions"
 	cuncurrencyFunctions "edgar.com/proj-test-1/cuncurrencyFunctions"
+	examplesOnly "edgar.com/proj-test-1/examplesOnly"
+	functionsOnly "edgar.com/proj-test-1/functionsOnly"
 	importtesttest "edgar.com/proj-test-1/importTest1/importTest2/importTestTest"
 	interfaceFunctions "edgar.com/proj-test-1/interfaceFunctions"
 	mapsfunctions "edgar.com/proj-test-1/mapsfunctions"
 	slicefunctions "edgar.com/proj-test-1/slicefunctions"
+	sortfunctions "edgar.com/proj-test-1/sortfunctions"
+	stringfunctions "edgar.com/proj-test-1/stringfunctions"
 	structfunctions "edgar.com/proj-test-1/structfunctions"
 	utilsfunctions "edgar.com/proj-test-1/utilsfunctions"
-	stringfunctions "edgar.com/proj-test-1/stringfunctions"
-	sortfunctions "edgar.com/proj-test-1/sortfunctions"
-	closurefunctions "edgar.com/proj-test-1/closurefunctions"
-	examplesOnly "edgar.com/proj-test-1/examplesOnly"
-	functionsOnly "edgar.com/proj-test-1/functionsOnly"
 
 	//pt2helperfunctions "edgar.com/proj-test-2/pt2helperfunctions"
 	mygoutil "github.com/EdgarLip/mygoutils"
@@ -39,7 +39,6 @@ func main() {
 	// ------ string test section ------
 	// -----------------------------------
 	stringfunctions.CheckSplitFunc()
-
 
 	//--- import package in same module ---
 	//utilsfunctions.Print_package_name()
@@ -81,19 +80,14 @@ func main() {
 	// ---------------------
 	//utilsfunctions.Check_assimernt_if_with_random(10)
 
-	
-
 	// ------ switch ------
 	//utilsfunctions.Check_switch_case_v1(5)
-
-
-
 
 	// ---------------------
 	// ------slices ---------
 	// ---------------------
 	fmt.Println("--- slices start ---")
-	
+
 	// sliceForTest := []int{1, 2, 3, 4, 5, 6}
 	// slicefunctions.For_loop_on_slice()
 	// slicefunctions.TestCopy()
@@ -137,20 +131,19 @@ func main() {
 
 	bill1 := structfunctions.Bill{Name: "nomis-bday",
 		Items: map[string]float64{
-			"slat":  10.2,
+			"slat":   10.2,
 			"waffel": 5.3,
 		},
 		Tip: 10.10}
 
 	bill2 := &structfunctions.Bill{Name: "yulias-bday",
 		Items: map[string]float64{
-			"slat":  12.2,
+			"slat":   12.2,
 			"waffel": 3.3,
 		},
 		Tip: 10.10}
-	
-	fmt.Printf("bill1:  %v\nbill2: %v ",bill1,bill2)
-	
+
+	fmt.Printf("bill1:  %v\nbill2: %v ", bill1, bill2)
 
 	bill1.UpdateTip(5.5)
 	bill2.UpdateTip(5.5)
@@ -166,7 +159,7 @@ func main() {
 
 	//structfunctions.ModifyPersonInAction()
 	structfunctions.PrintNodeSelectorOfStaticRoute()
-	
+
 	fmt.Println("--- end structs ---")
 
 	//---- import module ------
@@ -176,12 +169,11 @@ func main() {
 	structfunctions.PersonSayHiInAction()
 	structfunctions.InfoInAction()
 
-	// this examples show how to calculate a distance between points in a line, and a full path that has many lines in it 
-	side := structfunctions.Line{structfunctions.Point{1, 2,"p1"}, structfunctions.Point{4, 6,"p2"}}
-	perimeter := structfunctions.Path{{1,1,"p1"}, {5,1,"p2"}, {5,4,"p3"}, {1,1,"p4"}}
-	fmt.Printf("side distance = %v \n",side.Distance())
-	fmt.Printf("perimeter distance = %v \n",perimeter.Distance())
-
+	// this examples show how to calculate a distance between points in a line, and a full path that has many lines in it
+	side := structfunctions.Line{structfunctions.Point{1, 2, "p1"}, structfunctions.Point{4, 6, "p2"}}
+	perimeter := structfunctions.Path{{1, 1, "p1"}, {5, 1, "p2"}, {5, 4, "p3"}, {1, 1, "p4"}}
+	fmt.Printf("side distance = %v \n", side.Distance())
+	fmt.Printf("perimeter distance = %v \n", perimeter.Distance())
 
 	//   ----------------------------------
 	//   ------ interface section ---------
@@ -225,16 +217,23 @@ func main() {
 	// }
 	// fmt.Println(" --- end file work --- ")
 
-	//   -------------------------------
-	//   ---   cuncurrency section   ---
-	//   -------------------------------
+	//   -------------------------------------
+	//   ---   cuncurrency section start   ---
+	//   -------------------------------------
 	// fmt.Println(" --- cuncurrency Start --- ")
 
 	cuncurrencyFunctions.CuncurencyPlaceHolderfucntion()
 	// cuncurrencyFunctions.CuncurencyInAction()
 	// cuncurrencyFunctions.ChannelTestInAction()
 	// cuncurrencyFunctions.FanInMain()
+	//examplesOnly.RunGetUrls()
+	//examplesOnly.RunPrimeNumbers()
+	examplesOnly.TickerWithChannelsAndSelect()
 	// fmt.Println(" --- cuncurrency End --- ")
+
+	//   -------------------------------------
+	//   ---   cuncurrency section end   ---
+	//   -------------------------------------
 
 	//   -------------------------------
 	//   ---   sort section   ---
@@ -255,8 +254,8 @@ func main() {
 	//   ------------------------------------
 	//   ---   http server section start  ---
 	//   ------------------------------------
-	
-	examplesOnly.RunHttpServer()
+
+	//examplesOnly.RunHttpServer()
 
 	//   ------------------------------------
 	//   ---   http server section end    ---
