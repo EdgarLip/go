@@ -228,7 +228,14 @@ func main() {
 	// cuncurrencyFunctions.FanInMain()
 	//examplesOnly.RunGetUrls()
 	//examplesOnly.RunPrimeNumbers()
-	examplesOnly.TickerWithChannelsAndSelect()
+	//examplesOnly.SearchTreeMain("/c/Users/lipnitsk/go_projects") // for linux use /c/Users/xxx/go_projects
+	//examplesOnly.SearchTreeMain("C:/Users/lipnitsk/go_projects")  // for windows use C:/Users/xxx/go_projects
+
+	//examplesOnly.SearchTreeMainCuncurrent("C:/Users/lipnitsk/go_projects")
+	//examplesOnly.SearchTreeMainCuncurrent_v2("C:/Users/lipnitsk/go_projects")
+	//examplesOnly.SearchTreeMainCuncurrent_v3("C:/Users/lipnitsk/go_projects")
+
+	//examplesOnly.TickerWithChannelsAndSelect()
 	// fmt.Println(" --- cuncurrency End --- ")
 
 	//   -------------------------------------
@@ -255,7 +262,7 @@ func main() {
 	//   ---   http server section start  ---
 	//   ------------------------------------
 
-	//examplesOnly.RunHttpServer()
+	examplesOnly.RunHttpServer()
 
 	//   ------------------------------------
 	//   ---   http server section end    ---
